@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KSTHST WebPortal Launch</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    body { font-family: 'Poppins', sans-serif; }
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .launch-button {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+    }
+    .launch-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4); }
+    .confetti { position: absolute; width: 10px; height: 10px; background: #ff6b6b; animation: confetti-fall 3s linear infinite; }
+    .confetti:nth-child(odd) { background: #4ecdc4; width: 8px; height: 8px; animation-duration: 2.5s; }
+    .confetti:nth-child(3n) { background: #45b7d1; width: 6px; height: 6px; animation-duration: 3.5s; }
+    .confetti:nth-child(4n) { background: #f9ca24; width: 12px; height: 12px; animation-duration: 2.8s; }
+    @keyframes confetti-fall {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+    .celebration-text { animation: bounce 0.6s ease-in-out infinite alternate; }
+    @keyframes bounce { from { transform: translateY(0px); } to { transform: translateY(-10px); } }
+    .pulse-ring { animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+    @keyframes pulse-ring { 0% { transform: scale(0.33); } 80%, 100% { opacity: 0; } }
+    .fade-in { animation: fadeIn 1s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hidden { display: none; }
+    .rocket { font-size: 2rem; animation: rocket-bounce 2s ease-in-out infinite; }
+    @keyframes rocket-bounce { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+    .welcome-message { opacity: 0; transition: opacity 0.5s ease-in-out; display: none; }
+    .welcome-message.active { opacity: 1; display: block; }
+    .floating-icon {
+      width: 60px; height: 60px; background: rgba(255, 255, 255, 0.2); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: pointer;
+      transition: all 0.3s ease; backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3); animation: float 3s ease-in-out infinite;
+    }
+    .floating-icon:hover { transform: scale(1.2) translateY(-5px); background: rgba(255, 255, 255, 0.3); box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2); }
+    .floating-icon.active { background: rgba(255, 107, 107, 0.4); border-color: rgba(255, 107, 107, 0.6); transform: scale(1.1); }
+    @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+    .floating-icon:nth-child(1) { animation-delay: 0s; }
+    .floating-icon:nth-child(2) { animation-delay: 0.5s; }
+    .floating-icon:nth-child(3) { animation-delay: 1s; }
+    .floating-icon:nth-child(4) { animation-delay: 1.5s; }
+    #welcomeMessages { min-height: 100px; margin-bottom: 2rem; }
+    .animated-title { animation: slideInFromTop 1.5s ease-out, glow 2s ease-in-out infinite alternate; }
+    .slide-in-title { animation: slideInFromLeft 1.2s ease-out 0.5s both; }
+    .fade-in-subtitle { animation: fadeInUp 1s ease-out 1s both; }
+    @keyframes slideInFromTop { 0% { transform: translateY(-100px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    @keyframes slideInFromLeft { 0% { transform: translateX(-100px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+    @keyframes fadeInUp { 0% { transform: translateY(30px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+    @keyframes glow { 0% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); } 100% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6); } }
+  </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Confetti Container -->
+  <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50 hidden"></div>
+
+  <!-- Main Content -->
+  <div class="text-center text-white px-8 max-w-4xl mx-auto fade-in">
+    <!-- Main Kannada Title -->
+    <h1 class="text-3xl md:text-5xl font-bold mb-6 tracking-tight animated-title">
+      ಕುಷ್ಟಗಿ ತಾಲೂಕ ಪ್ರೌಢ ಶಾಲಾ ನೌಕರರ ಪತ್ತಿನ ಸಹಕಾರ ಸಂಘ(ರಿ)ಕುಷ್ಟಗಿ
+    </h1>
+
+    <!-- Logo/Icon -->
+    <div class="mb-8">
+      <div class="inline-block p-6 bg-white bg-opacity-20 rounded-full backdrop-blur-sm">
+        <span class="rocket">🚀</span>
+      </div>
+    </div>
+
+    
+    <!-- English Title -->
+    <h2 class="text-4xl md:text-6xl font-bold mb-4 tracking-tight slide-in-title">www.ksthstsociety.com</h2>
+    <h3 class="text-2xl md:text-3xl font-light mb-8 opacity-90 fade-in-subtitle">WebPortal</h3>
+
+    <!-- Interactive Welcome Messages -->
+    <div id="welcomeMessages" class="mb-12">
+      <div class="welcome-message active text-xl md:text-2xl opacity-80 max-w-3xl mx-auto leading-relaxed mb-4">
+        🌟 Welcome to the future of digital excellence, esteemed Chairperson and visionary leaders!
+      </div>
+      <div class="welcome-message text-xl md:text-2xl opacity-80 max-w-3xl mx-auto leading-relaxed mb-4">
+        👥 "Greetings to our dedicated shareholders of the society, who are the true pillars behind the success of KSTHST Society—more than just its directors!"
+      </div>
+      <div class="welcome-message text-xl md:text-2xl opacity-80 max-w-3xl mx-auto leading-relaxed mb-4">
+        🤝 A warm welcome to all our valued Members - together we build the future!
+      </div>
+      <div class="welcome-message text-xl md:text-2xl opacity-80 max-w-3xl mx-auto leading-relaxed mb-4">
+        🚀 Your digital journey begins here. One click to transform our society's future!
+      </div>
+    </div>
+
+    <!-- Interactive Elements -->
+    <div class="flex justify-center space-x-4 mb-8">
+      <div class="floating-icon" onclick="showMessage(0)">👑</div>
+      <div class="floating-icon" onclick="showMessage(1)">🎯</div>
+      <div class="floating-icon" onclick="showMessage(2)">👥</div>
+      <div class="floating-icon" onclick="showMessage(3)">🚀</div>
+    </div>
+
+    <!-- Launch Button -->
+    <div class="relative inline-block">
+      <div class="absolute inset-0 bg-white rounded-full pulse-ring opacity-25"></div>
+      <button id="launchButton"
+        class="launch-button text-white font-semibold py-6 px-12 rounded-full text-xl md:text-2xl relative z-10 transform transition-all duration-300 hover:scale-105"
+        onclick="launchWebsite()">🚀 Launch WebPortal</button>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="hidden mt-8">
+      <div class="celebration-text text-2xl md:text-3xl font-semibold">🎉 Launching Successfully! 🎉</div>
+      <p class="text-lg mt-4 opacity-90">Redirecting you to the KSTHST Society portal...</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="mt-16 opacity-60">
+      <p class="text-sm">Powered by codemates.Ltd</p>
+      <a href="https://www.codemates.in/" target="_blank" class="text-sm underline hover:text-white transition">https://www.codemates.in</a>
+    </div>
+  </div>
+
+  <script>
+    let currentMessage = 0;
+    let messageInterval;
+
+    function showMessage(index) {
+      const messages = document.querySelectorAll('.welcome-message');
+      const icons = document.querySelectorAll('.floating-icon');
+      messages.forEach(msg => msg.classList.remove('active'));
+      icons.forEach(icon => icon.classList.remove('active'));
+      messages[index].classList.add('active');
+      icons[index].classList.add('active');
+      currentMessage = index;
+      clearInterval(messageInterval);
+      startMessageRotation();
+    }
+
+    function startMessageRotation() {
+      messageInterval = setInterval(() => {
+        currentMessage = (currentMessage + 1) % 4;
+        showMessage(currentMessage);
+      }, 4000);
+    }
+
+    function createConfetti() {
+      const confettiContainer = document.getElementById('confetti-container');
+      const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#a55eea', '#26de81'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDelay = Math.random() * 3 + 's';
+        confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        confettiContainer.appendChild(confetti);
+        setTimeout(() => { if (confetti.parentNode) { confetti.parentNode.removeChild(confetti); } }, 5000);
+      }
+    }
+
+    // ✅ Play inauguration clap sound
+    function playClapSound() {
+      const clapAudio = new Audio("https://www.soundjay.com/human/applause-8.mp3");
+      clapAudio.volume = 0.9;
+      clapAudio.play().catch(err => console.log("Autoplay blocked:", err));
+    }
+
+    function launchWebsite() {
+      const button = document.getElementById('launchButton');
+      const successMessage = document.getElementById('successMessage');
+      const confettiContainer = document.getElementById('confetti-container');
+
+      button.disabled = true;
+      button.style.opacity = '0.7';
+      button.innerHTML = '🚀 Launching...';
+
+      confettiContainer.classList.remove('hidden');
+      createConfetti();
+
+      // ✅ Play clap sound with confetti
+      playClapSound();
+
+      setTimeout(() => { successMessage.classList.remove('hidden'); }, 500);
+
+      setTimeout(() => { createConfetti(); playClapSound(); }, 1000);
+      setTimeout(() => { createConfetti(); playClapSound(); }, 1000);
+
+      setTimeout(() => { window.open('https://www.ksthstsociety.com', '_blank'); }, 3000);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      startMessageRotation();
+      setTimeout(() => {
+        const sparkles = ['✨', '⭐', '🌟', '💫'];
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = Math.random() * window.innerWidth + 'px';
+            sparkle.style.top = Math.random() * window.innerHeight + 'px';
+            sparkle.style.fontSize = '2rem';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '40';
+            sparkle.style.animation = 'fadeIn 2s ease-out forwards';
+            document.body.appendChild(sparkle);
+            setTimeout(() => { if (sparkle.parentNode) { sparkle.parentNode.removeChild(sparkle); } }, 3000);
+          }, i * 500);
+        }
+      }, 1000);
+
+      const icons = document.querySelectorAll('.floating-icon');
+      icons.forEach(icon => {
+        icon.addEventListener('mouseenter', () => { icon.style.animationPlayState = 'paused'; });
+        icon.addEventListener('mouseleave', () => { icon.style.animationPlayState = 'running'; });
+      });
+    });
+  </script>
+</body>
+</html>
